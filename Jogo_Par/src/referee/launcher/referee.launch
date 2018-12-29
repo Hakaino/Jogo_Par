@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+  <include file="$(find turtlebot_bringup)/launch/minimal.launch" />
+  <node name="referee_node" pkg="referee" type="referee" />
+</launch>

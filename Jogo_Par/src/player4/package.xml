@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>player4</name>
+  <version>0.0.1</version>
+  <description>And last but not least, here is the player 4</description>
+  <maintainer email="malema18@student.aau.dk">Marco Alemao, Philip Moller, Andrei Voica, Dominika Goral, Jakob Hoy, Manuela Mendes, Damian Leporis</maintainer>
+  <license>BSD</license>
+  <depend>roscpp</depend>
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

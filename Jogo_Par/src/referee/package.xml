@@ -1,0 +1,19 @@
+<?xml version="0.1"?>
+<package format="2">
+  <name>referee</name>
+  <version>0.0.1</version>
+  <description>This node recieves all plays and decides who the how many points each player has</description>
+  <maintainer email="malema18@student.aau.dk">Marco Alemao, Philip Moller, Andrei Voica, Dominika Goral, Jakob Hoy, Manuela Mendes, Damian Leporis</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>image_transport</exec_depend>
+  <exec_depend>opencv2</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <exec_depend>turtlesim</exec_depend>
+
+</package>
