@@ -28,49 +28,48 @@ void p4(const std_msgs::String::ConstPtr& val){
     players[3] = val->data;
 }
 
-bool winner = false;
+//  bool winner = false;
 
-class ImageSaver
-{
- ros::NodeHandle nh_;
- image_transport::ImageTransport it_;
- image_transport::Subscriber image_sub_;
+//  class ImageSaver
+//  {
+//   ros::NodeHandle nh_;
+//   image_transport::ImageTransport it_;
+//   image_transport::Subscriber image_sub_;
 
-int i = 0;
-char filename[80];
+// int i = 0;
+// char filename[80];
 
-public:
- ImageSaver()
-   : it_(nh_)
- {
-   image_sub_ = it_.subscribe("/camera/rgb/image_raw", 1, &ImageSaver::imageCb, this);
- }
+//  public:
+//      ImageSaver()
+//     : it_(nh_)
+//   {
+//     image_sub_ = it_.subscribe("/camera/rgb/image_raw", 1, &ImageSaver::imageCb, this);
+//   }
 
 
- void imageCb(const sensor_msgs::ImageConstPtr& msg)
- {
-   cv_bridge::CvImagePtr cv_ptr;
-   try
-   {
-     cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
-   }
-   catch (cv_bridge::Exception& e)
-   {
-     ROS_ERROR("cv_bridge exception: %s", e.what());
-     return;
-   }
-   if(winner){
-   sprintf(filename,"Winner_Round:%d.png", i++);
-     cv::imwrite(filename,cv_ptr->image);
-     winner = false;
-   }
- }
-};
+//   void imageCb(const sensor_msgs::ImageConstPtr& msg)
+//   {
+//     cv_bridge::CvImagePtr cv_ptr;
+//     try
+//     {
+//       cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+//     }
+//     catch (cv_bridge::Exception& e)
+//     {
+//       ROS_ERROR("cv_bridge exception: %s", e.what());
+//       return;
+//     }
+//     if(winner){
+//     sprintf(filename,"Winner_Round:%d.png", i++);
+//       cv::imwrite(filename,cv_ptr->image);
+//       winner = false;
+//     }
+//   }
+//  };
 
 int main(int argc, char *argv[]) {
     ros::init(argc, argv, "referee");
     ros::NodeHandle nh;
-    ImageSaver is;
     ros::Subscriber player_1 = nh.subscribe("p1_topic", 1, p1);
     ros::Subscriber player_2 = nh.subscribe("p2_topic", 1, p2);
     ros::Subscriber player_3 = nh.subscribe("p3_topic", 1, p3);
@@ -110,6 +109,7 @@ int main(int argc, char *argv[]) {
             cmd_vel_pub.publish(msg);
             ros::Duration(1.0).sleep();
             winner = true;
+            ImageSaver is;
             ROS_INFO("XXTTXX");
             ros::spinOnce();
         };
