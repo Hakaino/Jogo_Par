@@ -108,8 +108,8 @@ int main(int argc, char *argv[]) {
             msg.angular.z = player * M_PI / 2;
             cmd_vel_pub.publish(msg);
             ros::Duration(1.0).sleep();
-            winner = true;
-            ImageSaver is;
+//              winner = true;
+//                ImageSaver is;
             ROS_INFO("XXTTXX");
             ros::spinOnce();
         };
